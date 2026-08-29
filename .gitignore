@@ -32,3 +32,22 @@ core.*
 
 .DS_Store
 Thumbs.db
+
+core
+core.*
+
+# Wokspace excluition
+Ass2-.code-workspace
+
+# --------------------------------------------------
+# Local development / planning files
+# --------------------------------------------------
+
+/Plan.md
+/*.code-workspace
+/.vscode/
+
+/ex1.c
+
+# Personal notes
+/notes/
