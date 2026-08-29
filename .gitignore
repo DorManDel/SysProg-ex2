@@ -43,7 +43,7 @@ Ass2-.code-workspace
 # Local development / planning files
 # --------------------------------------------------
 
-/docs/Plan.md
+/notes/Plan.md
 /Plan.md
 /*.code-workspace
 /.vscode/
