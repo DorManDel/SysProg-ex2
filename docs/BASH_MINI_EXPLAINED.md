@@ -46,30 +46,30 @@ and passes it to `/bin/ls`. The `ls` program interprets `-l`.
 
 ```mermaid
 flowchart TD
-    U[User] --> P[Print Prompt]
-    P --> R[Input Reader]
-    R --> PA[Parser]
-    PA --> C[Command Classifier]
+    U["User"] --> P["Print Prompt"]
+    P --> R["Input Reader"]
+    R --> PA["Parser"]
+    PA --> C["Command Classifier"]
 
     C -->|empty| P
-    C -->|exit| E[Stop Shell]
-    C -->|cd| CD[chdir in shell process]
+    C -->|exit| E["Stop Shell"]
+    C -->|cd| CD["chdir() in shell process"]
     CD --> P
 
-    C -->|external| RE[Executable Resolver]
-    RE --> H[$HOME/command]
-    H -->|not executable| B[/bin/command]
-    H -->|found| EX[Process Executor]
+    C -->|external| RE["Executable Resolver"]
+    RE --> H["$HOME/command"]
+    H -->|not executable| B["/bin/command"]
+    H -->|found| EX["Process Executor"]
     B -->|found| EX
-    B -->|missing| UK[Unknown Command]
+    B -->|missing| UK["Unknown Command"]
     UK --> P
 
-    EX --> F[fork]
-    F -->|child| EV[execv]
-    F -->|parent| W[waitpid]
-    EV --> CP[External program runs]
+    EX --> F["fork()"]
+    F -->|child| EV["execv()"]
+    F -->|parent| W["waitpid()"]
+    EV --> CP["External program runs"]
     CP --> W
-    W --> S[Decode child status]
+    W --> S["Decode child status"]
     S --> P
 ```
 
