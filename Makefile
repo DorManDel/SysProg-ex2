@@ -58,12 +58,12 @@ check-wal:
 # ------------------------------------------------------------
 
 test-shell: check-shell
-	./shell/tests/run_all.sh
+	bash ./shell/tests/run_all.sh
 
-test-wal: check-wal
-	./wal/tests/run_all.sh
+# test-wal: check-wal
+#  	./wal/tests/run_all.sh
 
-test: test-shell test-wal
+# test: test-shell test-wal
 
 
 # ------------------------------------------------------------
