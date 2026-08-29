@@ -35,9 +35,11 @@ all: shell wal
 # Individual builds
 # ------------------------------------------------------------
 
+# Mini shell
 shell:
 	$(CC) $(CFLAGS) $(SHELL_SOURCE) -o $(SHELL_TARGET)
 
+# WAL - ass2 the chellenging 
 wal:
 	$(CC) $(CFLAGS) $(WAL_SOURCE) -o $(WAL_TARGET) $(WAL_FLAGS)
 
@@ -63,7 +65,7 @@ test-shell: check-shell
 # test-wal: check-wal
 #  	./wal/tests/run_all.sh
 
-# test: test-shell test-wal
+ test: test-shell # test-wal
 
 
 # ------------------------------------------------------------

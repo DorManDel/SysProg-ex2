@@ -824,8 +824,10 @@ static ResolveStatus resolve_executable(const char *command, const char *home,
             return RESOLVE_ERROR;
         }
 
+        
         if (access(resolved_path, X_OK) == 0)
         {
+            /* can i executre this ? */
             return RESOLVE_FOUND;
         }
     }
@@ -842,6 +844,12 @@ static ResolveStatus resolve_executable(const char *command, const char *home,
 
     return RESOLVE_NOT_FOUND;
 }
+/*
+access(path, F_OK);   // does it exist?
+access(path, R_OK);   // can I read it?
+access(path, W_OK);   // can I write it?
+access(path, X_OK);   // can I execute it?
+*/
 
 /*
 -----------------------------------------
@@ -866,6 +874,7 @@ static int wait_for_child(pid_t child_pid, int *status)
     {
         result = waitpid(child_pid, status, 0);
     } while (result < 0 && errno == EINTR);
+    // IENTR = Interrupted system call
 
     if (result < 0)
     {
